@@ -18,7 +18,7 @@
               export CUDA_VERSION="11.6"
            else
               if [[ ${LINUX_MAJOR_VERSION} == "22" ]]; then
-                  export CUDA_VERSION="11.6"
+                  export CUDA_VERSION="11.7"
               else
                   echo " "
                   ColErr="\033[1;31m"
@@ -229,35 +229,20 @@
                exit 255
             fi
         else 
-#			if [ $CUDA_VERSION == "11.7" ]; then
-#				export CUDA_DOWNLOAD=https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda_11.7.1_515.65.01_linux.run
-#				export CUDNN_VERSION="cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz"
-#				export CUDNN_DIRECTORY="cudnn-linux-x86_64-8.5.0.96_cuda11-archive"
-#				export cuDNN_MajorVersion="8.5.0"
-#				if [ ! -f ~/$CUDNN_VERSION ]; then
-#				   echo $errorcuDNN
-#				   exit 255
-#				fi
-#			else
-#				ColErr="\033[1;31m"
-#				NoColErr="\033[0m"
-#				echo -e ${ColErr}$(date -u) $errorCudaVersion ${NoColErr}
-#				exit 255
-#			fi
-				if [ $CUDA_VERSION == "11.7" ]; then
-					export CUDA_DOWNLOAD=https://developer.download.nvidia.com/compute/cuda/11.6.0/local_installers/cuda_11.6.0_510.39.01_linux.run
-					export CUDNN_VERSION="cudnn-linux-x86_64-8.4.0.27_cuda11.6-archive.tar.xz"
-					export CUDNN_DIRECTORY="cudnn-linux-x86_64-8.4.0.27_cuda11.6-archive"
-					export cuDNN_MajorVersion="8.4.0"
-					if [ ! -f ~/$CUDNN_VERSION ]; then
-						echo $errorcuDNN
-					exit 255
-				else
-					ColErr="\033[1;31m"
-					NoColErr="\033[0m"
-					echo -e ${ColErr}$(date -u) $errorCudaVersion ${NoColErr}
-					exit 255
+			if [ $CUDA_VERSION == "11.7" ]; then
+				export CUDA_DOWNLOAD=https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda_11.7.1_515.65.01_linux.run
+				export CUDNN_VERSION="cudnn-linux-x86_64-8.5.0.96_cuda11-archive.tar.xz"
+				export CUDNN_DIRECTORY="cudnn-linux-x86_64-8.5.0.96_cuda11-archive"
+				export cuDNN_MajorVersion="8.5.0"
+				if [ ! -f ~/$CUDNN_VERSION ]; then
+				   echo $errorcuDNN
+				   exit 255
 				fi
+			else
+				ColErr="\033[1;31m"
+				NoColErr="\033[0m"
+				echo -e ${ColErr}$(date -u) $errorCudaVersion ${NoColErr}
+				exit 255
 			fi
 		fi
 	fi
