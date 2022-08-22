@@ -414,7 +414,17 @@ Logging "#######################################################################
               export LD_LIBRARY_PATH=/usr/local/cuda/lib64\${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
               export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
               echo 'cd ~' >> ~/.bashrc
-              ln -s /usr/local/cuda-$CUDA_VERSION /usr/local/cuda
+              if [ "$UBUNTU_VER" == "22.04" ]; then 
+	      	apt-get -y install nvidia-cuda-toolkit
+		mkdir /usr/local/cuda
+		cd /usr/local/cuda
+		ln -s /usr/lib/nvidia-cuda-toolkit/bin bin
+		ln -s /usr/include include
+		ln -s /usr/lib/x86_64-linux-gnu lib64
+		ln -s /usr/share share
+	      else
+	      	ln -s /usr/local/cuda-$CUDA_VERSION /usr/local/cuda
+	      fi
               source ~/.bashrc
               #apt-get -y install nvidia-cuda-toolkit
               Logging "$infoCompileCUDAExamples"
