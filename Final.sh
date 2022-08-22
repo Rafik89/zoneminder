@@ -31,7 +31,7 @@
     fi
 	
     touch $PWD/ExportControl.log
-    export OPENCV_VER="4.6.0"
+    export OPENCV_VER="4.5.5"
     echo "OPENCV_VER "$OPENCV_VER  | tee -a  $PWD/ExportControl.log
     echo "CUDA_VERSION "$CUDA_VERSION | tee -a  $PWD/ExportControl.log
     Language="German"
