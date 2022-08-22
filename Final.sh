@@ -6,7 +6,7 @@
     export LINUX_VERSION_NAME=`lsb_release -sr`
     LINUX_MAJOR_VERSION="${LINUX_VERSION_NAME:0:2}"
 	
-    export ZM_VERSION="1.34"
+    export ZM_VERSION="1.36"
 
     if [[ ${LINUX_MAJOR_VERSION} == "18" ]]; then
         export CUDA_VERSION="11.6"
