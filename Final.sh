@@ -415,7 +415,7 @@ Logging "#######################################################################
               export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
               echo 'cd ~' >> ~/.bashrc
               if [ "$UBUNTU_VER" == "22.04" ]; then 
-	      	apt-get -y install nvidia-cuda-toolkit
+	      	apt-get -y install nvidia-cuda-toolkit python3-opencv
 		mkdir /usr/local/cuda
 		cd /usr/local/cuda
 		ln -s /usr/lib/nvidia-cuda-toolkit/bin bin
