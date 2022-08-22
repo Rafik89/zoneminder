@@ -18,7 +18,7 @@
               export CUDA_VERSION="11.6"
            else
               if [[ ${LINUX_MAJOR_VERSION} == "22" ]]; then
-                  export CUDA_VERSION="11.7"
+                  export CUDA_VERSION="11.6"
               else
                   echo " "
                   ColErr="\033[1;31m"
